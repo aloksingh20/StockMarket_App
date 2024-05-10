@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface StockApi {
 //    https://www.alphavantage.co/&apikey=demo
-    @GET("query?function=LISTING_STATUS&date=2014-07-10&state=delisted")
+    @GET("query?function=LISTING_STATUS")
     suspend fun getListings(
         @Query("apikey") apiKey:String = API_KEY
     ):ResponseBody

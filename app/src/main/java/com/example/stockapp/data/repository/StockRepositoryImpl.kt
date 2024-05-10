@@ -46,7 +46,6 @@ class StockRepositoryImpl @Inject constructor(
             }
             val remoteListings = try{
                 val response = stockApi.getListings()
-                println(response.byteStream().readBytes().decodeToString())
                 companyListingParser.parse(response.byteStream())
             }
             catch (e:IOException){
@@ -59,7 +58,6 @@ class StockRepositoryImpl @Inject constructor(
                 emit(Resource.Error("Couldn't load data"))
                 null
             }
-            println(remoteListings.toString())
             remoteListings?.let { listings->
 
                 dao.clearCompanyListing()
