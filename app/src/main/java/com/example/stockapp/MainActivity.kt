@@ -44,12 +44,12 @@ class MainActivity : ComponentActivity() {
                         startDestination = "home"
                     ) {
                         composable("home"){
-                            CompanyListingScreen(navController, onItemClick = {symbol->
+                            CompanyListingScreen(navController, onItemClick = { symbol ->
                                 navController.navigate("company_listing/$symbol")
-                            })
+                            }
+                            )
                         }
                         composable("company_listing/{symbol}"){
-                            val viewModel = hiltViewModel<CompanyListingViewModel>()
                             it.arguments?.getString("symbol")
                                 ?.let { it1 -> CompanyInfoScreen(symbol = it1, navController = navController) }
                         }

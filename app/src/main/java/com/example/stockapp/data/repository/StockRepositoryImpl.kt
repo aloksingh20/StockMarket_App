@@ -27,7 +27,7 @@ class StockRepositoryImpl @Inject constructor(
 ):StockRepository {
 
     private val dao = stockDb.dao
-
+    
     override suspend fun getCompanyListing(
         fetFromRemote: Boolean,
         query: String
@@ -59,7 +59,6 @@ class StockRepositoryImpl @Inject constructor(
                 null
             }
             remoteListings?.let { listings->
-
                 dao.clearCompanyListing()
                 dao.insertCompanyListings(
                     listings.map { it.toCompanyListingEntity() }

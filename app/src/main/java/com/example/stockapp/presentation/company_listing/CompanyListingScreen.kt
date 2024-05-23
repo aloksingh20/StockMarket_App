@@ -59,8 +59,8 @@ fun CompanyListingScreen(
                             .fillMaxWidth()
                             .padding(16.dp)
                             .clickable {
-
-                                onItemClick(company.symbol)                            }
+                                onItemClick(company.symbol)
+                            }
                     )
                     if(i < state.companies.size){
                         Divider( modifier = Modifier.padding(16.dp))
